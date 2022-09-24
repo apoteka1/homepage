@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
-import { request } from "graphql-request";
 
 const BlogPostCard = ({ content, date, image, slug, title }) => (
 	<div  key={slug}>
@@ -14,37 +13,7 @@ const BlogPostCard = ({ content, date, image, slug, title }) => (
 );
 
 const Home = () => {
-	const [posts, setPosts] = useState([]);
-
-	useEffect(() => {
-		const fetchPosts = async () => {
-			const { blogPosts } = await request(
-				"https://api-eu-west-2.hygraph.com/v2/cl674n3q8c72a01t5ctq37qdw/master",
-				`
-        {
-            blogPosts(orderBy: publishedAt_ASC) {
-              content {
-                text
-              }
-              date
-              slug
-              title
-              image {
-                url
-              }
-            }
-          }
-    `
-			);
-
-			setPosts(blogPosts);
-		};
-
-		fetchPosts();
-	}, []);
-	console.log(posts);
-
-	return <div style={{width:'80%'}}>{posts.map(BlogPostCard)}</div>;
+	return <div>home</div>
 };
 
 export default Home;
