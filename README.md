@@ -1,1 +1,1 @@
-React music artist in construction
+React music artist website - in construction
